@@ -2,16 +2,16 @@ import asyncio
 import logging
 import sys
 
-from aiohttp import web
 from dotenv import load_dotenv, find_dotenv
 
 
 load_dotenv(find_dotenv())
-from bot.database.engine import drop_db, create_db
-from bot.middelewares.db import DataBaseSession
 from bot.parametrs import dp, bot, session_maker, WEBHOOK_PATH, app
+from bot.middelewares.db import DataBaseSession
+from bot.database.engine import drop_db, create_db
 from bot.handler.user_private import main_bot_router
 from bot.webhook import t_bank_webhook
+from aiohttp import web
 
 
 dp.include_routers(

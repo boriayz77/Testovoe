@@ -9,12 +9,12 @@ RUN apt-get update && apt-get install -y \
     file \
     && apt-get clean
 
-WORKDIR /bot
+WORKDIR .
 
-COPY requirements.txt .
+COPY bot/requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
-COPY . .
+COPY bot .
 
 RUN chmod -R 755 .
 
